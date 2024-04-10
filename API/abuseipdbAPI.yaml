@@ -9,7 +9,7 @@ servers:
     - url: https://www.abuseipdb.com/
 
 paths:
-	/check/{ip}:
+    /check/{ip}:
         get:
             operationId: AbuseIPDB
             summary: Lookup IP information
