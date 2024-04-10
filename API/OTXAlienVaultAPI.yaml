@@ -79,6 +79,20 @@ paths:
             responses:
                 "200":
                     description: OK
+    /api/v1/indicators/IPv4/{ip}/reputation:
+        get:
+            operationId: OTXAlienvaultIPReputation
+            summary: Lookup ip information
+            parameters:
+                - in: path
+                  name: ip
+                  schema:
+                      type: string
+                  required: true
+                  description: OTX data on malicious activity observed by AlienVault Labs
+            responses:
+                "200":
+                    description: OK
     /api/v1/indicators/IPv4/{ip}/geo:
         get:
             operationId: OTXAlienvaultIPInformationGeo
@@ -246,4 +260,4 @@ paths:
                   description: MITRE CVE data, any pulses this indicator is on, list of the other sections currently available for this CVE
             responses:
                 "200":
-                    description: OK                 
+                    description: OK
