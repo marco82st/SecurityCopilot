@@ -1,0 +1,25 @@
+openapi: 3.0.0
+
+info:
+    title: AbuseIPDB API
+    description: AbuseIPDB API
+    version: "v1"
+
+servers:
+    - url: https://www.abuseipdb.com/
+
+paths:
+	/check/{ip}:
+        get:
+            operationId: AbuseIPDB
+            summary: Lookup IP information
+            parameters:
+                - in: path
+                  name: ip
+                  schema:
+                      type: string
+                  required: true
+                  description: The domain IP to lookup
+            responses:
+                "200":
+                    description: OK
