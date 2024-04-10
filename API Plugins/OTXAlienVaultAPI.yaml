@@ -1,0 +1,249 @@
+openapi: 3.0.0
+
+info:
+    title: OTX Alienvault API
+    description: OTX Alienvault API
+    version: "v1"
+
+servers:
+    - url: https://otx.alienvault.com/
+
+paths:
+    /api/v1/indicators/domains/{domain}/general:
+        get:
+            operationId: OTXAlienvaultDomainInformation
+            summary: Lookup domain information
+            parameters:
+                - in: path
+                  name: domain
+                  schema:
+                      type: string
+                  required: true
+                  description: The domain address to lookup
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/domains/{domain}/geo:
+        get:
+            operationId: OTXAlienvaultDomainInformationGeo
+            summary: Lookup domain geo data
+            parameters:
+                - in: path
+                  name: domain
+                  schema:
+                      type: string
+                  required: true
+                  description: Lookup a more verbose listing of geographic data about a domain
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/domains/{domain}/malware:
+        get:
+            operationId: OTXAlienvaultDomainInformationMalware
+            summary: Lookup malware observed connecting to domain
+            parameters:
+                - in: path
+                  name: domain
+                  schema:
+                      type: string
+                  required: true
+                  description: Malware samples analyzed by AlienVault Labs which have been observed connecting to this domain
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/domains/{domain}/passive_dns:
+        post:
+            operationId: OTXAlienvaultDomainInformationPassiveDNS
+            summary: Lookup domain passive dns records
+            parameters:
+                - in: path
+                  name: domain
+                  schema:
+                      type: string
+                  required: true
+                  description: Passive dns records observed by AlienVault Labs pointing to this domain
+            responses:
+                "200":
+                    description: OK
+	/api/v1/indicators/domains/{ip}/general:
+        get:
+            operationId: OTXAlienvaultIPInformation
+            summary: Lookup ip information
+            parameters:
+                - in: path
+                  name: ip
+                  schema:
+                      type: string
+                  required: true
+                  description: General information about the IP, such as geo data, and a list of the other sections currently available for this IP address
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/domains/{ip}/geo:
+        get:
+            operationId: OTXAlienvaultIPInformationGeo
+            summary: Lookup ip geo data
+            parameters:
+                - in: path
+                  name: ip
+                  schema:
+                      type: string
+                  required: true
+                  description: Lookup a more verbose listing of geographic data about a ip
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/domains/{ip}/malware:
+        get:
+            operationId: OTXAlienvaultIPInformationMalware
+            summary: Lookup malware observed connecting to ip
+            parameters:
+                - in: path
+                  name: ip
+                  schema:
+                      type: string
+                  required: true
+                  description: Malware samples analyzed by AlienVault Labs which have been observed connecting to this ip
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/ip/{ip}/passive_dns:
+        post:
+            operationId: OTXAlienvaultIPInformationPassiveDNS
+            summary: Lookup ip passive dns records
+            parameters:
+                - in: path
+                  name: ip
+                  schema:
+                      type: string
+                  required: true
+                  description: Passive dns records observed by AlienVault Labs pointing to this ip
+            responses:
+                "200":
+                    description: OK		
+	/api/v1/indicators/hostname/{hostname}/general:
+        get:
+            operationId: OTXAlienvaultDomainInformation
+            summary: Lookup hostname information
+            parameters:
+                - in: path
+                  name: hostname
+                  schema:
+                      type: string
+                  required: true
+                  description: The hostname address to lookup
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/hostname/{hostname}/geo:
+        get:
+            operationId: OTXAlienvaultDomainInformationGeo
+            summary: Lookup hostname geo data
+            parameters:
+                - in: path
+                  name: hostname
+                  schema:
+                      type: string
+                  required: true
+                  description: Lookup a more verbose listing of geographic data about a hostname
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/hostname/{hostname}/malware:
+        get:
+            operationId: OTXAlienvaultDomainInformationMalware
+            summary: Lookup malware observed connecting to hostname
+            parameters:
+                - in: path
+                  name: hostname
+                  schema:
+                      type: string
+                  required: true
+                  description: Malware samples analyzed by AlienVault Labs which have been observed connecting to this hostname
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/hostname/{hostname}/passive_dns:
+        post:
+            operationId: OTXAlienvaultDomainInformationPassiveDNS
+            summary: Lookup hostname passive dns records
+            parameters:
+                - in: path
+                  name: hostname
+                  schema:
+                      type: string
+                  required: true
+                  description: Passive dns records observed by AlienVault Labs pointing to this domain
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/file/{file_hash}/general:
+        get:
+            operationId: OTXAlienvaultFileHash
+            summary: Lookup file hash information
+            parameters:
+                - in: path
+                  name: file_hash
+                  schema:
+                      type: string
+                  required: true
+                  description: General metadata about the file hash, and a list of the other sections currently available for this hash
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/file/{file_hash}/analysis:
+        post:
+            operationId: OTXAlienvaultFileHashAnalysis
+            summary: Lookup file hash analysis
+            parameters:
+                - in: path
+                  name: file_hash
+                  schema:
+                      type: string
+                  required: true
+                  description: dynamic and static analysis of this file
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/url/{url}/general:
+        get:
+            operationId: OTXAlienvaultUrl
+            summary: Lookup URL information
+            parameters:
+                - in: path
+                  name: url
+                  schema:
+                      type: string
+                  required: true
+                  description: Historical geographic info, any pulses this indicator is on, list of the other sections currently available for this URL
+            responses:
+                "200":
+                    description: OK
+    /api/v1/indicators/url/{url}/url_list:
+        post:
+            operationId: OTXAlienvaultUrlList
+            summary: Lookup url list information
+            parameters:
+                - in: path
+                  name: url
+                  schema:
+                      type: string
+                  required: true
+                  description: Full results from AlienVault Labs url analysis
+            responses:
+                "200":
+                    description: OK                
+    /api/v1/indicators/cve/{cve}/general:
+        post:
+            operationId: OTXAlienvaultCVE
+            summary: Lookup CVE information
+            parameters:
+                - in: path
+                  name: cve
+                  schema:
+                      type: string
+                  required: true
+                  description: MITRE CVE data, any pulses this indicator is on, list of the other sections currently available for this CVE
+            responses:
+                "200":
+                    description: OK                 
