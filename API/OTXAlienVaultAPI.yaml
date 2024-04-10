@@ -52,7 +52,7 @@ paths:
                 "200":
                     description: OK
     /api/v1/indicators/domain/{domain}/passive_dns:
-        post:
+        get:
             operationId: OTXAlienvaultDomainInformationPassiveDNS
             summary: Lookup domain passive dns records
             parameters:
@@ -65,7 +65,7 @@ paths:
             responses:
                 "200":
                     description: OK
-	/api/v1/indicators/IPv4/{ip}/general:
+    /api/v1/indicators/IPv4/{ip}/general:
         get:
             operationId: OTXAlienvaultIPInformation
             summary: Lookup ip information
@@ -108,7 +108,7 @@ paths:
                 "200":
                     description: OK
     /api/v1/indicators/IPv4/{ip}/passive_dns:
-        post:
+        get:
             operationId: OTXAlienvaultIPInformationPassiveDNS
             summary: Lookup ip passive dns records
             parameters:
@@ -121,7 +121,7 @@ paths:
             responses:
                 "200":
                     description: OK		
-	/api/v1/indicators/hostname/{hostname}/general:
+    /api/v1/indicators/hostname/{hostname}/general:
         get:
             operationId: OTXAlienvaultDomainInformation
             summary: Lookup hostname information
@@ -164,7 +164,7 @@ paths:
                 "200":
                     description: OK
     /api/v1/indicators/hostname/{hostname}/passive_dns:
-        post:
+        get:
             operationId: OTXAlienvaultDomainInformationPassiveDNS
             summary: Lookup hostname passive dns records
             parameters:
@@ -192,7 +192,7 @@ paths:
                 "200":
                     description: OK
     /api/v1/indicators/file/{file_hash}/analysis:
-        post:
+        get:
             operationId: OTXAlienvaultFileHashAnalysis
             summary: Lookup file hash analysis
             parameters:
@@ -220,7 +220,7 @@ paths:
                 "200":
                     description: OK
     /api/v1/indicators/url/{url}/url_list:
-        post:
+        get:
             operationId: OTXAlienvaultUrlList
             summary: Lookup url list information
             parameters:
@@ -234,7 +234,7 @@ paths:
                 "200":
                     description: OK                
     /api/v1/indicators/cve/{cve}/general:
-        post:
+        get:
             operationId: OTXAlienvaultCVE
             summary: Lookup CVE information
             parameters:
@@ -246,4 +246,4 @@ paths:
                   description: MITRE CVE data, any pulses this indicator is on, list of the other sections currently available for this CVE
             responses:
                 "200":
-                    description: OK
+                    description: OK                 
