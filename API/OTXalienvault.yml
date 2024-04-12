@@ -1,0 +1,16 @@
+Descriptor:
+  Name: OTX Alienvault Reports
+  DisplayName: OTX Alienvault Reports
+  Description: Skills for looking up reports using the Free OTX Alienvault API
+  SupportedAuthTypes:
+    - ApiKey
+  Authorization:
+    Type: APIKey
+    Key: x-apikey
+    Location: Header
+    AuthScheme: ''
+
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: https://raw.githubusercontent.com/marco82st/SecurityCopilot/main/API/OTXAlienVaultAPI.yaml
